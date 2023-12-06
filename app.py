@@ -1,9 +1,9 @@
-
+# Import necessary libraries
 import streamlit as st
 import requests
 
 # Define API endpoints
-BASE_URL = "http://0.0.0.0:8080"  
+BASE_URL = "http://your-ktor-api-base-url"  # Replace with your Ktor API base URL
 ADD_TASK_ENDPOINT = "/addtask"
 DELETE_ALL_TASK_ENDPOINT = "/deletealltask"
 GET_ALL_TASKS_ENDPOINT = "/tasks"
@@ -19,6 +19,10 @@ def main():
     if st.button("Add Task"):
         add_task(new_task)
 
+    # Button to delete all tasks
+    if st.button("Delete All Tasks"):
+        delete_all_tasks()
+
     # Display the current tasks
     display_tasks()
 
@@ -30,6 +34,15 @@ def add_task(task):
         st.success(f"Task '{task}' added successfully!")
     except requests.exceptions.RequestException as e:
         st.error(f"Error adding task: {e}")
+
+# Function to delete all tasks
+def delete_all_tasks():
+    try:
+        response = requests.delete(BASE_URL + DELETE_ALL_TASK_ENDPOINT)
+        response.raise_for_status()
+        st.warning("All tasks deleted successfully!")
+    except requests.exceptions.RequestException as e:
+        st.error(f"Error deleting all tasks: {e}")
 
 # Function to display the current tasks
 def display_tasks():
@@ -51,4 +64,3 @@ def display_tasks():
 
 if __name__ == "__main__":
     main()
-
