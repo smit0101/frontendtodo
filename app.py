@@ -3,7 +3,7 @@ import streamlit as st
 import requests
 
 # Define API endpoints
-BASE_URL = "https://frontendtodo-qypza5jeea-uc.a.run.app"  
+BASE_URL = "http://0.0.0.0:8080"  
 ADD_TASK_ENDPOINT = "/addtask"
 DELETE_ALL_TASK_ENDPOINT = "/deletealltask"
 GET_ALL_TASKS_ENDPOINT = "/tasks"
