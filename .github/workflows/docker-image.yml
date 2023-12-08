@@ -2,7 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "k8s" ]
 
 env:
   DOCKER_USER: '${{secrets.DOCKER_USERNAME}}'
@@ -37,5 +37,5 @@ jobs:
       
     - name: Build the Docker image
       run: | 
-       docker build . --file Dockerfile --tag  smitmark01/frontendtodo:latest
-       docker push smitmark01/frontendtodo:latest    
+       docker build . --file Dockerfile --tag  smitmark01/frontendtodo:k8s
+       docker push smitmark01/frontendtodo:k8s    
