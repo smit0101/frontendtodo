@@ -3,7 +3,7 @@ import streamlit as st
 import requests
 
 # Define API endpoints
-BASE_URL = "http://localhost:8080"  # Replace with your Ktor API base URL
+BASE_URL = "http://smittodobackend:8080"  # Replace with your Ktor API base URL
 ADD_TASK_ENDPOINT = "/addtask"
 DELETE_ALL_TASK_ENDPOINT = "/deletealltask"
 GET_ALL_TASKS_ENDPOINT = "/tasks"
